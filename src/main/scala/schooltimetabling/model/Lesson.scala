@@ -19,10 +19,10 @@ case class Lesson(
     studentGroup: String,
     @PlanningVariable
     @BeanProperty
-    var timeslot: Timeslot,
+    var timeslot: Timeslot = null,
     @PlanningVariable
     @BeanProperty
-    var room: Room
+    var room: Room = null
 ) {
 
   override def toString: String =
