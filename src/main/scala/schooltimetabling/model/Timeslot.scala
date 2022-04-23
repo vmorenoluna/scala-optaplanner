@@ -1,4 +1,4 @@
-package model
+package schooltimetabling.model
 
 import java.time.{DayOfWeek, LocalTime}
 import scala.beans.BeanProperty

@@ -1,4 +1,4 @@
-package model
+package schooltimetabling.model
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity
 import org.optaplanner.core.api.domain.lookup.PlanningId
@@ -9,6 +9,7 @@ import scala.beans.BeanProperty
 @PlanningEntity
 case class Lesson(
     @PlanningId
+    @BeanProperty
     id: Long,
     @BeanProperty
     subject: String,

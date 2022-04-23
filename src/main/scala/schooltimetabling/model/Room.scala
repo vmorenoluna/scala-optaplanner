@@ -1,4 +1,4 @@
-package model
+package schooltimetabling.model
 
 import scala.beans.BeanProperty
 
