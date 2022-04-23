@@ -5,9 +5,9 @@ version := "0.1"
 scalaVersion := "2.13.1"
 
 val optaPlannerVersion = "8.20.0.Final"
-val slf4jVersion = "1.7.9"
-val logbackVersion = "1.2.7"
-val scalatestVersion = "3.1.0-SNAP13"
+val slf4jVersion = "1.7.36"
+val logbackVersion = "1.2.11"
+val scalatestVersion = "3.2.11"
 
 libraryDependencies ++= Seq(
   "org.optaplanner" % "optaplanner-core" % optaPlannerVersion,
