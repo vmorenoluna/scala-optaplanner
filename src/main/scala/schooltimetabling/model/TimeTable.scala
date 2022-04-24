@@ -1,27 +1,24 @@
 package schooltimetabling.model
 
-import org.optaplanner.core.api.domain.solution.{PlanningEntityCollectionProperty, PlanningScore, PlanningSolution, ProblemFactCollectionProperty}
-import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore
-
+import util.AnnotationAliases.{PlanningEntityCollectionProperty, PlanningScore, PlanningSolution, ProblemFactCollectionProperty, ValueRangeProvider}
 import java.util.{List => JList}
-import scala.annotation.meta.field
 import scala.beans.BeanProperty
 
 @PlanningSolution
 case class TimeTable(
-    @(ValueRangeProvider @field)(id = "timeslotRange")
-    @(ProblemFactCollectionProperty @field)
+    @ValueRangeProvider(id = "timeslotRange")
+    @ProblemFactCollectionProperty
     @BeanProperty
     timeslotList: JList[Timeslot],
-    @(ValueRangeProvider @field)(id = "roomRange")
-    @(ProblemFactCollectionProperty @field)
+    @ValueRangeProvider(id = "roomRange")
+    @ProblemFactCollectionProperty
     @BeanProperty
     roomList: JList[Room],
-    @(PlanningEntityCollectionProperty @field)
+    @PlanningEntityCollectionProperty
     @BeanProperty
     var lessonList: JList[Lesson],
-    @(PlanningScore @field)
+    @PlanningScore
     @BeanProperty
     var score: HardSoftScore = null
 ) {

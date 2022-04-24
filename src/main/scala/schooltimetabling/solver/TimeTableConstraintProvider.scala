@@ -28,7 +28,7 @@ class TimeTableConstraintProvider extends ConstraintProvider{
         // ... in the same room ...
         Joiners.equal((l: Lesson) => l.getRoom),
         // ... and the pair is unique (different id, no reverse pairs) ...
-        Joiners.lessThan((_: Lesson).getId.asInstanceOf[java.lang.Long])
+        Joiners.lessThan((_: Lesson).getId)
       )
       // ... then penalize each pair with a hard weight.
       .penalize("Room conflict", HardSoftScore.ONE_HARD)
@@ -42,7 +42,7 @@ class TimeTableConstraintProvider extends ConstraintProvider{
           classOf[Lesson],
           Joiners.equal((_: Lesson).getTimeslot),
           Joiners.equal((_: Lesson).getTeacher),
-          Joiners.lessThan((_: Lesson).getId.asInstanceOf[java.lang.Long])
+          Joiners.lessThan((_: Lesson).getId)
         )
         .penalize("Teacher conflict", HardSoftScore.ONE_HARD)
 
@@ -54,7 +54,7 @@ class TimeTableConstraintProvider extends ConstraintProvider{
         classOf[Lesson],
         Joiners.equal((_: Lesson).getTimeslot),
         Joiners.equal((_: Lesson).getStudentGroup),
-        Joiners.lessThan((_: Lesson).getId.asInstanceOf[java.lang.Long])
+        Joiners.lessThan((_: Lesson).getId)
       )
       .penalize("Student group conflict", HardSoftScore.ONE_HARD)
 

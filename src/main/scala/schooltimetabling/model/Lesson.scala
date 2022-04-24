@@ -1,15 +1,12 @@
 package schooltimetabling.model
 
-import org.optaplanner.core.api.domain.entity.PlanningEntity
-import org.optaplanner.core.api.domain.lookup.PlanningId
-import org.optaplanner.core.api.domain.variable.PlanningVariable
+import util.AnnotationAliases.{PlanningEntity, PlanningId, PlanningVariable}
 import java.lang.{Long => JLong}
-import scala.annotation.meta.field
 import scala.beans.BeanProperty
 
 @PlanningEntity
 case class Lesson(
-    @(PlanningId @field)
+    @PlanningId
     @BeanProperty
     id: JLong,
     @BeanProperty
@@ -18,10 +15,10 @@ case class Lesson(
     teacher: String,
     @BeanProperty
     studentGroup: String,
-    @(PlanningVariable @field)(valueRangeProviderRefs = Array("timeslotRange"))
+    @PlanningVariable(valueRangeProviderRefs = Array("timeslotRange"))
     @BeanProperty
     var timeslot: Timeslot = null,
-    @(PlanningVariable @field)(valueRangeProviderRefs = Array("roomRange"))
+    @PlanningVariable(valueRangeProviderRefs = Array("roomRange"))
     @BeanProperty
     var room: Room = null
 ) {
