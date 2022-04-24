@@ -24,8 +24,13 @@ case class TimeTable(
     var score: HardSoftScore = null
 ) {
 
-//  def this() {
-//    this()
-//  }
+  def this() {
+    this(
+      List.empty,
+      List.empty,
+      List.empty,
+      null
+    )
+  }
 
 }
