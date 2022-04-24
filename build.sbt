@@ -4,6 +4,8 @@ version := "0.1"
 
 scalaVersion := "2.13.1"
 
+scalacOptions += "-target:jvm-1.8"
+
 val optaPlannerVersion = "8.20.0.Final"
 val slf4jVersion = "1.7.36"
 val logbackVersion = "1.2.11"

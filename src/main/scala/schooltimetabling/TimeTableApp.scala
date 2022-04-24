@@ -5,7 +5,7 @@ import org.optaplanner.core.config.solver.SolverConfig
 import org.slf4j.{Logger, LoggerFactory}
 import schooltimetabling.model.{Lesson, Room, TimeTable, Timeslot}
 import schooltimetabling.solver.TimeTableConstraintProvider
-
+import scala.jdk.CollectionConverters._
 import java.time.{DayOfWeek, Duration, LocalTime}
 
 object TimeTableApp extends App {
@@ -76,13 +76,13 @@ object TimeTableApp extends App {
       Lesson(20, "Spanish", "P. Cruz", "10th grade")
     )
 
-    TimeTable(timeslotList, roomList, lessonList)
+    TimeTable(timeslotList.asJava, roomList.asJava, lessonList.asJava)
   }
 
   private def printTimetable(timeTable: TimeTable): Unit = {
     LOGGER.info("")
-    val roomList: List[Room]     = timeTable.getRoomList()
-    val lessonList: List[Lesson] = timeTable.getLessonList()
+    val roomList: List[Room]     = timeTable.getRoomList().asScala.toList
+    val lessonList: List[Lesson] = timeTable.getLessonList().asScala.toList
     val lessonMap: Map[(Timeslot, Room), List[Lesson]] =
       lessonList
         .filter(lesson => lesson.getTimeslot() != null && lesson.getRoom() != null)
@@ -97,7 +97,7 @@ object TimeTableApp extends App {
     LOGGER.info(
       "|" + "------------|".repeat(roomList.size + 1)
     )
-    for (timeslot <- timeTable.getTimeslotList()) {
+    for (timeslot <- timeTable.getTimeslotList().asScala) {
       val cellList: List[List[Lesson]] = roomList
         .map(room => {
           lessonMap.get((timeslot, room)) match {
