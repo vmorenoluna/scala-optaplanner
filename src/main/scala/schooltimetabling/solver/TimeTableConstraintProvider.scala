@@ -15,7 +15,7 @@ class TimeTableConstraintProvider extends ConstraintProvider{
       // Soft constraints are only implemented in the optaplanner-quickstarts code
     )
 
-  private def roomConflict(constraintFactory: ConstraintFactory): Constraint =
+  def roomConflict(constraintFactory: ConstraintFactory): Constraint =
     // A room can accommodate at most one lesson at the same time.
     // Select a lesson ...
     constraintFactory
