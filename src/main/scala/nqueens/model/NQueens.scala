@@ -8,7 +8,7 @@ import scala.beans.BeanProperty
 @PlanningSolution
 case class NQueens(
     @BeanProperty
-    n: Integer,
+    n: Int,
     @ProblemFactCollectionProperty
     @BeanProperty
     columnList: JList[Column],

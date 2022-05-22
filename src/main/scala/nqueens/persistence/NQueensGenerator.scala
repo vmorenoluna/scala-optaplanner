@@ -19,34 +19,34 @@ class NQueensGenerator extends App {
   }
 
   def createNQueens(n: Int): NQueens = {
-    val columns = createColumnList(n)
     val nQueens: NQueens = NQueens(
       n,
-      columns,
-      createRowList(n),
-      createQueenList(n, columns)
+      createColumnList(nQueens),
+      createRowList(nQueens),
+      createQueenList(nQueens)
     )
     val possibleSolutionSize: BigInt = BigInt(nQueens.getN()).pow(nQueens.getN())
     println(s"NQueens $n has ${nQueens.getN} queens with a search space of ${getFlooredPossibleSolutionSize(possibleSolutionSize)}.")
     nQueens
   }
 
-  private def createColumnList(n: Int): JList[Column] = {
+  private def createColumnList(nQueens: NQueens): JList[Column] = {
     for {
-      i <- 0 until n
+      i <- 0 to nQueens.n
     } yield Column(i, i)
   }.asJava
 
-  private def createRowList(n: Int): JList[Row] = {
+  private def createRowList(nQueens: NQueens): JList[Row] = {
     for {
-      i <- 0 until n
+      i <- 0 to nQueens.n
     } yield Row(i, i)
   }.asJava
 
-  private def createQueenList(n: Int, columns: JList[Column]): JList[Queen] = {
+  private def createQueenList(nQueens: NQueens): JList[Queen] = {
     for {
-      id <- 0 until n
-    } yield Queen(id, columns.get(id))
+      id <- 0 to nQueens.n
+      column <- nQueens.columnList.asScala
+    } yield Queen(id, column)
   }.asJava
 
 }

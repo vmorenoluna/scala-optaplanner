@@ -5,7 +5,7 @@ import nqueens.persistence.NQueensGenerator
 import org.optaplanner.core.api.solver.{Solver, SolverFactory}
 import java.util.{List => JList}
 
-object NQueensHelloWorld extends App {
+class NQueensHelloWorld extends  App {
 
   // Build the Solver
   val solverFactory: SolverFactory[NQueens]  = SolverFactory.createFromXmlResource(
@@ -26,8 +26,8 @@ object NQueensHelloWorld extends App {
     val n: Int = nQueens.getN()
     val queenList: JList[Queen] = nQueens.getQueenList()
     for {
-      row <- 0 until n
-      column <- 0 until n
+      row <- 0 to n
+      column <- 0 to n
     } yield {
       val queen: Queen = queenList.get(column)
       if (queen.getColumn().getIndex() != column) {
@@ -39,7 +39,7 @@ object NQueensHelloWorld extends App {
       } else {
         displayString.append("_")
       }
-      if(column == n-1) {
+      if(column == n) {
         displayString.append("\n")
       }
     }

@@ -31,7 +31,7 @@ class QueenDifficultyWeightFactory extends SelectionSorterWeightFactory[NQueens,
     override def compare(that: QueenDifficultyWeight): Int = {
         -distanceFromMiddle compare -that.distanceFromMiddle match {
           case 0 => queen.getColumnIndex compare that.queen.getColumnIndex
-          case n => n
+          case _ => _
         }
     }
 
