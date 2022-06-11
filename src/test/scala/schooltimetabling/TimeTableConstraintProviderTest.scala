@@ -1,3 +1,5 @@
+package schooltimetabling
+
 import org.optaplanner.core.api.score.stream.ConstraintFactory
 import org.optaplanner.test.api.score.stream.ConstraintVerifier
 import org.scalatest.flatspec.AnyFlatSpec

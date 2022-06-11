@@ -5,7 +5,7 @@ import nqueens.persistence.NQueensGenerator
 import org.optaplanner.core.api.solver.{Solver, SolverFactory}
 import java.util.{List => JList}
 
-class NQueensHelloWorld extends  App {
+class NQueensHelloWorld extends App {
 
   // Build the Solver
   val solverFactory: SolverFactory[NQueens]  = SolverFactory.createFromXmlResource(
