@@ -33,21 +33,20 @@ class NQueensGenerator extends App {
 
   private def createColumnList(n: Int): JList[Column] = {
     for {
-      i <- 0 to n
+      i <- 0 until n
     } yield Column(i, i)
   }.asJava
 
   private def createRowList(n: Int): JList[Row] = {
     for {
-      i <- 0 to n
+      i <- 0 until n
     } yield Row(i, i)
   }.asJava
 
   private def createQueenList(n: Int, columns: JList[Column]): JList[Queen] = {
     for {
-      id <- 0 to n
-      column <- columns.asScala
-    } yield Queen(id, column)
+      id <- 0 until n
+    } yield Queen(id, columns.get(id))
   }.asJava
 
 }
