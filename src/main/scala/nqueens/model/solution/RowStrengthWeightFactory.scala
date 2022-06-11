@@ -31,7 +31,7 @@ class RowStrengthWeightFactory extends SelectionSorterWeightFactory[NQueens, Row
     override def compare(other: RowStrengthWeight): Int = {
       distanceFromMiddle compare other.distanceFromMiddle match {
         case 0 => row.getIndex compare other.row.getIndex
-        case _ => _
+        case n => n
       }
     }
 

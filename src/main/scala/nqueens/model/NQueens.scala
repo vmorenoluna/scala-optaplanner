@@ -25,7 +25,7 @@ case class NQueens(
 ) {
 
   def this()= {
-    this(null, null, null, null, null)
+    this(0, null, null, null, null)
   }
 
 }
