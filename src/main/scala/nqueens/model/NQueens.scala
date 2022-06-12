@@ -8,7 +8,7 @@ import scala.beans.BeanProperty
 @PlanningSolution
 case class NQueens(
     @BeanProperty
-    n: Int,
+    n: Integer,
     @ProblemFactCollectionProperty
     @BeanProperty
     columnList: JList[Column],
@@ -25,7 +25,7 @@ case class NQueens(
 ) {
 
   def this()= {
-    this(0, null, null, null, null)
+    this(null, null, null, null, null)
   }
 
 }
