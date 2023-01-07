@@ -5,6 +5,8 @@ A playground to experiment with Scala and Optaplanner
 
 https://www.optaplanner.org/docs/optaplanner/latest/design-patterns/design-patterns.html#domainModelingGuide
 
+https://www.optaplanner.org/docs/optaplanner/latest/design-patterns/design-patterns.html#chainedThroughTimePattern
+
 Planning entity hashCode() implementations must remain constant. Therefore entity hashCode() must not depend on any 
 planning variables. Pay special attention when using data structures with auto-generated hashCode() as entities, such 
 as Java records or Kotlin data classes.

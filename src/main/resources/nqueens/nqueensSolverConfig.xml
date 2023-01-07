@@ -10,7 +10,8 @@
   <entityClass>nqueens.model.Queen</entityClass>
 
   <scoreDirectorFactory>
-    <scoreDrl>nqueens/score/nQueensConstraints.drl</scoreDrl>
+    <constraintProviderClass>nqueens.score.NQueensConstraintProvider</constraintProviderClass>
+<!--    <scoreDrl>nqueens/score/nQueensConstraints.drl</scoreDrl>-->
     <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
   </scoreDirectorFactory>
 
